@@ -3,12 +3,6 @@ MAINTAINER Michael Nowak <nowak@taktsoft.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse" >> /etc/apt/sources.list \
-#     && echo "deb http://archive.ubuntu.com/ubuntu trusty-updates main universe multiverse" >> /etc/apt/sources.list \
-#     && echo "deb http://archive.ubuntu.com/ubuntu trusty-security main universe multiverse" >> /etc/apt/sources.list \
-#     && apt-get update \
-#     && apt-get upgrade -y
-
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list \
     && echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list \
     && echo "deb http://archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list \
@@ -28,4 +22,4 @@ RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_li
     && rm wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
 
 ENTRYPOINT ["wkhtmltopdf"]
-CMD ["-h"]
+CMD ["--extended-help "]
